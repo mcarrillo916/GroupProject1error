@@ -5,11 +5,11 @@ $(document).ready(function () {
         $("#loginPage").hide()
         $("#homePage").removeClass("hidden")
         document.body.style.background = "white";
+        $(".parallax").parallax()
     })
 
     //functionality for navbar phone menu + parallax + datepickers
     $(".sidenav").sidenav()
-    $(".parallax").parallax()
     $(".datepicker").datepicker({
     })
 
