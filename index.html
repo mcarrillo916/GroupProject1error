@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <title>Group Project</title>
@@ -22,12 +23,14 @@
 <body>
 
     <div class="container">
-        <div class="z-depth-1 center-align" id="loginPage">
-            <h1>Want to get away?</h1>
-            <a href="#" class="btn blue waves-effect waves light" id="loginButton">Find your paradise</a>
+        <div class="center-align" id="loginPage">
+            <h1 id="wantToGetAway">Want to get away?</h1>
+            <a href="#" class="btn-large blue waves-effect waves light" id="loginButton">Find your paradise</a>
             <br>
         </div>
-        <div id="homePage">
+    </div>
+    <div>
+        <div class="hidden" id="homePage">
             <nav class="nav-wrapper blue">
                 <div class="container">
                     <a href="#" class="brand-logo">Site Name</a>
@@ -42,15 +45,103 @@
                     </ul>
                 </div>
             </nav>
-            <ul class="sidenav" id="mobile-links">
-                <li><a href="#" class="homeLink">Home</a></li>
-                <li><a href="./mytrips.html" class="myTripsLink">My Trips</a></li>
-                <li><a href="./myprofile.html" class="myProfileLink">My Profile</a></li>
-                <li><a href="./aboutus.html" class="aboutUsLink">About Us</a></li>
-            </ul>
+            <div>
+                <ul class="sidenav" id="mobile-links">
+                    <li><a href="#" class="homeLink">Home</a></li>
+                    <li><a href="./mytrips.html" class="myTripsLink">My Trips</a></li>
+                    <li><a href="./myprofile.html" class="myProfileLink">My Profile</a></li>
+                    <li><a href="./aboutus.html" class="aboutUsLink">About Us</a></li>
+                </ul>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax">
+                    <h1>Welcome</h1>
+                    <img src="./assets/images/chair-lift.jpg" alt="" class="responsive-img">
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col s12 l6">
+                        <h1>Select your adventure</h1>
+                        <form action="">
+                            <div class="input-field">
+                                <div>
+                                    <input type="text" id="destination">
+                                    <label for="destination">Destination</label>
+                                </div>
+                                <div>
+                                    <input type="text" id="dateOfDeparture" class="datepicker">
+                                    <label for="dateOfDeparture">Date of Departure (MM/DD/YYYY)</label>
+                                </div>
+                                <div>
+                                    <input type="text" id="dateOFReturn" class="datepicker">
+                                    <label for="dateOFReturn">Date of Return (MM/DD/YYYY)</label>
+                                </div>
+                                <div>
+                                    <input type="text" id="numberOfAdults">
+                                    <label for="numberOfAdults">Number of Adults</label>
+                                </div>
+                                <div>
+                                    <input type="text" id="numberOfChildren">
+                                    <label for="numberOfChildren">Number of Children</label>
+                                </div>
+                            </div>
+                            <form action="/action_page.php">
+                                Hotel rating?:<br>
+                                <select name="hotelList" form="hotelForm">
+                                    <option value="0">Any</option>
+                                    <option value="1">2 star or higher</option>
+                                    <option value="2">3 star or higher</option>
+                                    <option value="3">4 star or higher</option>
+                                    <option value="4">5 star or higher</option>
+                                    <option value="5">5 star</option>
+                                </select>
+                            </form>
+                            <br>
+                            Rent a car?:<br>
+                            <select name="carList" form="carForm">
+                                <option value="no">No thanks</option>
+                                <option value="uber">Uber/Lift</option>
+                                <option value="compact">Compact Car</option>
+                                <option value="suv">SUV</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </form>
+                        <br>
+                        <a href="#" class="btn-large blue waves-effect waves light" id="searchButton">Search</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="./assets/images/beach.jpg" alt="" class="responsive-img">
+            </div>
+        </div>
+        <div class="row searchHide" id="searchResultBox">
+            <div class="col s12 l6">
+                <div>
+                    <h1>Results</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto officiis ullam nostrum
+                        doloremque
+                        a non expedita, eum exercitationem obcaecati praesentium, pariatur labore minima numquam nihil
+                        aliquam, consequatur odio iste ad?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit rerum ratione expedita natus, odio
+                        temporibus quia, sequi blanditiis, eius quasi consequatur laboriosam nisi voluptate facilis
+                        labore
+                        vel corrupti sint. Eum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container searchHide">
+            <div class="parallax">
+                <img src="./assets/images/great-wall.jpg" alt="" class="responsive-img">
+            </div>
+        </div>
+        <footer class="footer-copyright grey darken-3">
+            <div class="container center align">&copy: 2019 UCD Bootcamp</div>
+        </footer>
     </div>
-
     <script type="text/javascript" src="./assets/javascript/logic.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
