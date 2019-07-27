@@ -36,6 +36,15 @@ h1{
     font-family: 'Acme', sans-serif;
     font-size: 20px
 }
+#mytripsTable{
+    font-family: 'Acme', sans-serif;
+}
+#userProfile{
+    font-family: 'Acme', sans-serif;
+}
+#aboutusText{
+    font-family: 'Acme', sans-serif;
+}
 #footer{
     height: 25px;
     font-size: 15px;
