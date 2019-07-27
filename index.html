@@ -63,50 +63,46 @@
                 <div class="row">
                     <div class="col s12 l6">
                         <h1>Select your adventure</h1>
-                        <form action="">
-                            <div class="input-field">
-                                <div>
-                                    <input type="text" id="destination">
-                                    <label for="destination">Destination</label>
-                                </div>
-                                <div>
-                                    <input type="text" id="dateOfDeparture" class="datepicker">
-                                    <label for="dateOfDeparture">Date of Departure (MM/DD/YYYY)</label>
-                                </div>
-                                <div>
-                                    <input type="text" id="dateOFReturn" class="datepicker">
-                                    <label for="dateOFReturn">Date of Return (MM/DD/YYYY)</label>
-                                </div>
-                                <div>
-                                    <input type="text" id="numberOfAdults">
-                                    <label for="numberOfAdults">Number of Adults</label>
-                                </div>
-                                <div>
-                                    <input type="text" id="numberOfChildren">
-                                    <label for="numberOfChildren">Number of Children</label>
-                                </div>
+                        <div class="input-field">
+                            <div>
+                                <input type="text" id="destination">
+                                <label for="destination">Destination</label>
                             </div>
-                            <form action="/action_page.php">
-                                Hotel rating?:<br>
-                                <select name="hotelList" form="hotelForm">
-                                    <option value="0">Any</option>
-                                    <option value="1">2 star or higher</option>
-                                    <option value="2">3 star or higher</option>
-                                    <option value="3">4 star or higher</option>
-                                    <option value="4">5 star or higher</option>
-                                    <option value="5">5 star</option>
-                                </select>
-                            </form>
-                            <br>
-                            Rent a car?:<br>
-                            <select name="carList" form="carForm">
-                                <option value="no">No thanks</option>
-                                <option value="uber">Uber/Lift</option>
-                                <option value="compact">Compact Car</option>
-                                <option value="suv">SUV</option>
-                                <option value="luxury">Luxury</option>
-                            </select>
-                        </form>
+                            <div>
+                                <input type="text" id="dateOfDeparture" class="datepicker">
+                                <label for="dateOfDeparture">Date of Departure (MM/DD/YYYY)</label>
+                            </div>
+                            <div>
+                                <input type="text" id="dateOFReturn" class="datepicker">
+                                <label for="dateOFReturn">Date of Return (MM/DD/YYYY)</label>
+                            </div>
+                            <div>
+                                <input type="text" id="numberOfAdults">
+                                <label for="numberOfAdults">Number of Adults</label>
+                            </div>
+                            <div>
+                                <input type="text" id="numberOfChildren">
+                                <label for="numberOfChildren">Number of Children</label>
+                            </div>
+                        </div>
+                        Hotel rating?:<br>
+                        <select name="hotelList">
+                            <option value="0">Any</option>
+                            <option value="1">2 star or higher</option>
+                            <option value="2">3 star or higher</option>
+                            <option value="3">4 star or higher</option>
+                            <option value="4">5 star or higher</option>
+                            <option value="5">5 star</option>
+                        </select>
+                        <br>
+                        Rent a car?:<br>
+                        <select name="carList">
+                            <option value="no">No thanks</option>
+                            <option value="uber">Uber/Lift</option>
+                            <option value="compact">Compact Car</option>
+                            <option value="suv">SUV</option>
+                            <option value="luxury">Luxury</option>
+                        </select>
                         <br>
                         <a href="#" class="btn-large blue waves-effect waves light" id="searchButton">Search</a>
                     </div>
@@ -139,13 +135,12 @@
             </div>
         </div>
         <footer id="footer" class="footer-copyright grey darken-3">
-            <div class="container center align">&copy: 2019 UCD Bootcamp</div>
+            <div class="container center align">&copy; 2019 UCD Bootcamp</div>
         </footer>
     </div>
-    <script type="text/javascript" src="./assets/javascript/logic.js"></script>
+    <script src="./assets/javascript/logic.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    </script>
 </body>
 
 </html>
