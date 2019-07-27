@@ -1,9 +1,8 @@
 $(document).ready(function () {
+
+    //Hide Login Page, Nav Phone Menu + Parallax functionality, and set white background
     $("#loginPage").hide()
-    document.body.style.background = "white";
-    $("#yourTrips").on("click", function () {
-        alert("works")
-    })
     $(".parallax").parallax()
     $(".sidenav").sidenav()
+    document.body.style.background = "white";
 })
