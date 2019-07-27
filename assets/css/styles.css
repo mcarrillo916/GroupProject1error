@@ -26,3 +26,7 @@ body{
 .searchHide{
     display: none;
 }
+#footer{
+    height: 25px;
+    font-size: 20px;
+}
