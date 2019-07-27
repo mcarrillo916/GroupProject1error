@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#loginButton").on("click", function () {
         $("#loginPage").hide()
         $("#homePage").removeClass("hidden")
-        document.body.style.backgroundImage = "url('../images/circles-and-roundabouts.png.pn')";
+        document.body.style.background = "white";
         $(".parallax").parallax()
     })
     $(".sidenav").sidenav()
