@@ -10,7 +10,6 @@ body{
 }
 #loginPage{
     margin: 30% auto;
-
 }
 #wantToGetAway{
     font-family: 'Dancing Script', cursive;
@@ -20,13 +19,37 @@ body{
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
 }
+#navbar-links{
+    font-family: 'Lobster', cursive;
+}
+h1{
+    font-family: 'Acme', sans-serif;
+}
 .parallax{
+    height: auto;
     max-height: 300px
 }
 .searchHide{
     display: none;
 }
+#searchButton{
+    font-family: 'Acme', sans-serif;
+    font-size: 20px
+}
+#mytripsTable{
+    font-family: 'Acme', sans-serif;
+}
+#userProfile{
+    font-family: 'Acme', sans-serif;
+}
+#aboutusText{
+    font-family: 'Acme', sans-serif;
+}
 #footer{
     height: 25px;
-    font-size: 20px;
+    font-size: 15px;
+    color: white;
+    padding: 3px;
+    border-top: #49b1c2 2px ridge;
+    font-family: 'Amatic SC', cursive;
 }

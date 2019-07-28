@@ -14,7 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Dancing+Script|Lobster&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <title>Group Project</title>
@@ -22,6 +23,8 @@
 
 <body>
     <div>
+
+        <!--Navbar-->
         <div id="myTripsPage">
             <nav class="nav-wrapper blue">
                 <div class="container">
@@ -29,7 +32,7 @@
                     <a href="#" class="sidenav-trigger" data-target="mobile-links">
                         <i class="material-icons">menu</i>
                     </a>
-                    <ul class="right hide-on-med-and-down">
+                    <ul id="navbar-links" class="right hide-on-med-and-down">
                         <li><a href="./index.html" class="homeLink">Home</a></li>
                         <li><a href="#" class="myTripsLink">My Trips</a></li>
                         <li><a href="./myprofile.html" class="myProfileLink">My Profile</a></li>
@@ -37,6 +40,8 @@
                     </ul>
                 </div>
             </nav>
+
+            <!--Navbar Phone Menu-->
             <div>
                 <ul class="sidenav" id="mobile-links">
                     <li><a href="./index.html" class="homeLink">Home</a></li>
@@ -45,30 +50,53 @@
                     <li><a href="./aboutus.html" class="aboutUsLink">About Us</a></li>
                 </ul>
             </div>
+
+            <!--Parallax image 1-->
             <div class="parallax-container">
                 <div class="parallax">
-                    <img src="./assets/images/chair-lift.jpg" alt="" class="responsive-img">
+                    <img src="./assets/images/Venice.jpg" alt="" class="responsive-img">
                 </div>
             </div>
-            <div>
-                <div class="row">
-                    <div class="col s12 l6">
-                        <h1>Your Trips</h1>
-                        <p id="trip"></p>
-                    </div>
+            <!--Your Trip Div-->
+            <div class="row">
+                <div class="col s12 l6 offset-m3 offset-l3">
+                    <h1 class="center" id=" yourTrips">Your Trips</h1>
                 </div>
             </div>
-        </div>
-        <div class="parallax-container">
-            <div class="parallax">
-                <img src="./assets/images/beach.jpg" alt="" class="responsive-img">
+            <div class="row">
+                <div class="col s12 l6 offset-m3 offset-l3" id="mytripsTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="center">Destination</th>
+                                <th class="center">Trip Date</th>
+                                <th class="center">Trip Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="center">Ur moms</td>
+                                <td class="center">4/20/1969</td>
+                                <td class="center">$1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <!--Parallax image 2-->
+            <div class="parallax-container">
+                <div class="parallax">
+                    <img src="./assets/images/Tokyo.jpg" alt="" class="responsive-img">
+                </div>
+            </div>
+            <!--Footer-->
+            <footer class="footer-copyright blue">
+                <div class="container center align">&copy; 2019 UCD Bootcamp</div>
+            </footer>
         </div>
-        <footer class="footer-copyright grey darken-3">
-            <div class="container center align">&copy; 2019 UCD Bootcamp</div>
-        </footer>
     </div>
-    <script type="text/javascript" src="./assets/javascript/logic.js"></script>
+    <script type="text/javascript" src="./assets/javascript/externalpages.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

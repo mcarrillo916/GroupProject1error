@@ -14,7 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC|Dancing+Script|Lobster&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <title>Group Project</title>
@@ -22,6 +23,7 @@
 
 <body>
 
+    <!--Log in screen-->
     <div class="container">
         <div class="center-align" id="loginPage">
             <h1 id="wantToGetAway">Want to get away?</h1>
@@ -29,15 +31,19 @@
             <br>
         </div>
     </div>
+
+    <!--Home page-->
     <div>
         <div class="hidden" id="homePage">
+
+            <!--Navbar-->
             <nav class="nav-wrapper blue">
                 <div class="container">
                     <a href="#" class="brand-logo">Site Name</a>
                     <a href="#" class="sidenav-trigger" data-target="mobile-links">
                         <i class="material-icons">menu</i>
                     </a>
-                    <ul class="right hide-on-med-and-down">
+                    <ul id="navbar-links" class="right hide-on-med-and-down">
                         <li><a href="#" class="homeLink">Home</a></li>
                         <li><a href="./mytrips.html" class="myTripsLink">My Trips</a></li>
                         <li><a href="./myprofile.html" class="myProfileLink">My Profile</a></li>
@@ -45,6 +51,8 @@
                     </ul>
                 </div>
             </nav>
+
+            <!--Navbar Phone Menu-->
             <div>
                 <ul class="sidenav" id="mobile-links">
                     <li><a href="#" class="homeLink">Home</a></li>
@@ -53,16 +61,19 @@
                     <li><a href="./aboutus.html" class="aboutUsLink">About Us</a></li>
                 </ul>
             </div>
+
+            <!--Parallax image 1-->
             <div class="parallax-container">
                 <div class="parallax">
-                    <h1>Welcome</h1>
                     <img src="./assets/images/chair-lift.jpg" alt="" class="responsive-img">
                 </div>
             </div>
+
+            <!--   USER INPUT FIELD   -->
             <div>
                 <div class="row">
-                    <div class="col s12 l6">
-                        <h1>Select your adventure</h1>
+                    <div class="col s12 l6 offset-m3 offset-l3">
+                        <h1 class="center">Select your adventure</h1>
                         <div class="input-field">
                             <div>
                                 <input type="text" id="destination">
@@ -85,39 +96,28 @@
                                 <label for="numberOfChildren">Number of Children</label>
                             </div>
                         </div>
-                        Hotel rating?:<br>
-                        <select name="hotelList">
-                            <option value="0">Any</option>
-                            <option value="1">2 star or higher</option>
-                            <option value="2">3 star or higher</option>
-                            <option value="3">4 star or higher</option>
-                            <option value="4">5 star or higher</option>
-                            <option value="5">5 star</option>
-                        </select>
                         <br>
-                        Rent a car?:<br>
-                        <select name="carList">
-                            <option value="no">No thanks</option>
-                            <option value="uber">Uber/Lift</option>
-                            <option value="compact">Compact Car</option>
-                            <option value="suv">SUV</option>
-                            <option value="luxury">Luxury</option>
-                        </select>
-                        <br>
-                        <a href="#" class="btn-large blue waves-effect waves light" id="searchButton">Search</a>
+
+                        <!--   USER INPUT SEARCH BUTTON   -->
+                        <a href="#" class="btn-large blue waves-effect waves light hoverable" class="center"
+                            id="searchButton">Search</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--Parallax image 2-->
         <div class="parallax-container">
             <div class="parallax">
                 <img src="./assets/images/beach.jpg" alt="" class="responsive-img">
             </div>
         </div>
+
+        <!--   USER INPUT RESULTS   -->
         <div class="row searchHide" id="searchResultBox">
-            <div class="col s12 l6">
+            <div class="col s12 l6 offset-m3 offset-l3">
                 <div>
-                    <h1>Results</h1>
+                    <h1 class="center">Results</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto officiis ullam nostrum
                         doloremque
                         a non expedita, eum exercitationem obcaecati praesentium, pariatur labore minima numquam nihil
@@ -129,12 +129,16 @@
                 </div>
             </div>
         </div>
+
+        <!--Parallax image 3-->
         <div class="parallax-container searchHide">
             <div class="parallax">
                 <img src="./assets/images/great-wall.jpg" alt="" class="responsive-img">
             </div>
         </div>
-        <footer id="footer" class="footer-copyright grey darken-3">
+
+        <!--Footer-->
+        <footer id="footer" class="footer-copyright blue">
             <div class="container center align">&copy; 2019 UCD Bootcamp</div>
         </footer>
     </div>
