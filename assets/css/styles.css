@@ -30,6 +30,9 @@ h1{
     height: auto;
     max-height: 300px
 }
+.parallax-container{
+    height: 412px;
+}
 .searchHide{
     display: none;
 }
