@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#loginButton").on("click", function () {
         $("#loginPage").hide()
         $("#homePage").removeClass("hidden")
+        $("#footer").removeClass("hidden")
         document.body.style.background = "white";
         $(".parallax").parallax()
     })
