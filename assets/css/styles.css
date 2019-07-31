@@ -10,6 +10,7 @@ body{
 }
 #loginPage{
     margin: 30% auto;
+    max-height: 100%
 }
 #wantToGetAway{
     font-family: 'Dancing Script', cursive;
@@ -42,12 +43,18 @@ h1{
 }
 #mytripsTable{
     font-family: 'Acme', sans-serif;
+    font-size: 25px
+}
+.inputs{
+    margin-bottom: 30px
 }
 #userProfile{
     font-family: 'Acme', sans-serif;
+    font-size: 25px
 }
 #aboutusText{
     font-family: 'Acme', sans-serif;
+    font-size: 25px
 }
 #footer{
     height: 25px;
@@ -57,3 +64,8 @@ h1{
     border-top: #49b1c2 2px ridge;
     font-family: 'Amatic SC', cursive;
 }
+@media only screen and (max-width: 800px) {
+    .parallax-container{
+        height: 250px
+    }
+  }
