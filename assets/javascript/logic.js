@@ -25,21 +25,20 @@ $(document).ready(function () {
 
 $(document).on('click', '#searchButton', function(event){
     event.preventDefault()
+    console.log($('#destination').val())
 var search = $('#destination').val().trim()
 
-var queryURL = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + search + '+hotel&inputtype=textquery&fields=place_id,formatted_address,name&key=AIzaSyAkY4dt1u2LMdMnJbRKOJIul5zLLszsC7c'
-
-
+var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=by-chloe&location=" + search + ""
 $.ajax({
     url: queryURL,
-    type: 'GET'
-}).then(function (response) {
-    data = (JSON.stringify(response))
-    $(document.body).append(data)
-
-})
-
-
+    headers: {
+     'Authorization':'Bearer 2y2kh_n1BP5rfEiJPqnQ2sui5rl8MYkZRNZUS5HrYTPLgPCmZeWpCsbWee2cOzJFoZWmf6J2Cg58nT2MQR8P69FD6BYFRtu08BhRXrcFT0U8jkDowHPmnUNPC686XXYx',
+ },
+    method: 'GET',
+    success: function(response){
+        console.log(response);
+    }
+ });
 
 
 

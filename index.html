@@ -72,7 +72,7 @@
             <!--   USER INPUT FIELD   -->
             <div>
                 <div class="row">
-                    <div class="col s12 l6 offset-m3 offset-l3">
+                    <div class="col s12 m6 l6 offset-m3 offset-l3 inputs">
                         <h1 class="center">Select your adventure</h1>
                         <div class="input-field">
                             <div>
@@ -97,10 +97,12 @@
                             </div>
                         </div>
                         <br>
-
-                        <!--   USER INPUT SEARCH BUTTON   -->
-                        <a href="#" class="btn-large blue waves-effect waves light hoverable" class="center"
-                            id="searchButton">Search</a>
+                        <div class="center">
+                            <br>
+                            <!--   USER INPUT SEARCH BUTTON   -->
+                            <a href="#" class="btn-large blue waves-effect waves light hoverable" class="center"
+                                id="searchButton">Search</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,29 +118,64 @@
         <!--   USER INPUT RESULTS   -->
         <div class="row searchHide" id="searchResultBox">
             <div class="col s12 l6 offset-m3 offset-l3">
-                <div>
-                    <h1 class="center">Results</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto officiis ullam nostrum
-                        doloremque
-                        a non expedita, eum exercitationem obcaecati praesentium, pariatur labore minima numquam nihil
-                        aliquam, consequatur odio iste ad?</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit rerum ratione expedita natus, odio
-                        temporibus quia, sequi blanditiis, eius quasi consequatur laboriosam nisi voluptate facilis
-                        labore
-                        vel corrupti sint. Eum.</p>
+<!-- <<<<<<< finalcss--> 
+                <h2 class="center">Hotels</h2>
+                <div id="hotelCardDiv">
+                    <!--    CARDS      -->
+                    <div class="card">
+                        <div class="class-image">
+                            <img class="resize" src="assets/images/circles-and-roundabouts.png.png" alt="">
+                            <a href="#" class="halfway- fab btn-floating pink pulse">
+                                <i class="material-icons">favorite</i>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <card class="div-title">Blah</card>
+                            <p class="flow-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+                                repudiandae dolor porro voluptatibus voluptas deserunt accusamus in obcaecati cumque
+                                debitis. Possimus aliquid, facilis unde consequuntur nemo magnam amet optio ducimus.</p>
+                        </div>
+                        <div class="class-action">
+                            <a href="#">More Info</a>
+                        </div>
+<!-- =======  -->
+                <!--    Cards-->
+                <div class="card">
+                    <div class="class-image">
+                        <img src="assets/images/circles-and-roundabouts.png.png" alt="">
+                        <a href="#" class="halfway- fab btn-floating pink pulse">
+                            <i class="material-icons">favorite</i>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <card class="div-title">Blah</card>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam repudiandae dolor porro
+                            voluptatibus voluptas deserunt accusamus in obcaecati cumque debitis. Possimus aliquid,
+                            facilis unde consequuntur nemo magnam amet optio ducimus.</p>
+                    </div>
+                    <div class="class-action">
+                        <a href="#">More Info</a>
+<!-->>>>>>> master -->
+                    </div>
                 </div>
+                <hr>
+                <h2 class="center">Flights</h2>
+                <div id="flightCardDiv"></div>
+                <hr>
+                <h2 class="center">Cars</h2>
+                <div id="carCardDiv"></div>
             </div>
         </div>
 
         <!--Parallax image 3-->
-        <div class="parallax-container searchHide">
+        <div class="parallax-container searchHide bottom">
             <div class="parallax">
                 <img src="./assets/images/great-wall.jpg" alt="" class="responsive-img">
             </div>
         </div>
 
         <!--Footer-->
-        <footer id="footer" class="footer-copyright blue">
+        <footer id="footer" class="footer-copyright blue hidden">
             <div class="container center align">&copy; 2019 UCD Bootcamp</div>
         </footer>
     </div>
