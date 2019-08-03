@@ -5,4 +5,4 @@ $(document).ready(function () {
     $(".parallax").parallax()
     $(".sidenav").sidenav()
     document.body.style.background = "white";
-})
+});
