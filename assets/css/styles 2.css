@@ -1,32 +1,39 @@
-.hidden{
+.hidden {
     display: none
 }
-body{
-  background-image: url(../images/login.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+
+body {
+    background-image: url(../images/login.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
-#loginPage{
+
+#loginPage {
     margin: 30% auto;
 
 }
-#wantToGetAway{
+
+#wantToGetAway {
     font-family: 'Dancing Script', cursive;
     color: #E4F5FD;
 }
-#loginButton{
+
+#loginButton {
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
 }
-.parallax{
+
+.parallax {
     max-height: 300px
 }
-.searchHide{
+
+.searchHide {
     display: none;
 }
-#footer{
+
+#footer {
     height: 25px;
     font-size: 20px;
 }
