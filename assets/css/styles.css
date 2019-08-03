@@ -20,6 +20,12 @@ body{
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
 }
+.brand-logo{
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    font-size: 40px;
+    color: #d3def4;
+}
 #navbar-links{
     font-family: 'Lobster', cursive;
 }
