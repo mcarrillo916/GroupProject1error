@@ -42,7 +42,6 @@ $(document).ready(function () {
 
 $(document).on('click', '#searchButton', function (event) {
     event.preventDefault()
-    console.log($('#destination').val())
     var search = $('#destination').val().trim()
 
 
@@ -57,33 +56,19 @@ $(document).on('click', '#searchButton', function (event) {
         success: function (response) {
             var results = response.businesses
             for (var i = 0; i < results.length; i++) {
-                // console.log(results[i])
-                var names = results[i].name
+                console.log(results[i])
+                var hotelName = results[i].name
                 var url = results[i].image_url
-                console.log(names)
-                console.log(url)
 
-                var hotelName = "Hotel Name"
-                var hotelDescription = "Hotel info goes here"
-                var hotelAddress = "Address goes here"
-
-                var newCard = $("<div class='card'>").append(
-                    newImageDiv,
-                    newContentDiv,
-                    newRevealDiv,
-                    newSelector
-                )
+                var hotelAddress = results[i].location.address1
+                var hotelDescriptionPrice = results[i].price
+                var hotelDescriptionRating = results[i].rating
 
                 //IMAGE
                 var newImage = $("<img class='resize'>")
                 // image
-                newImage.attr("src", "assets/images/circles-and-roundabouts.png.png")
-                var newImageDiv = $("<div class='class-image'>").append(
-                    newImage
-                )
-
-
-                //CONTENT
+                newImage.append(`<img src=${url} + />`)
+                var newImageDiv = $("<div class='class-image'>").append(`<img  class='resize' src=${url} />`)
                 var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
 
                 var newContentDiv = $("<div class='card-content'>").append(
@@ -92,7 +77,9 @@ $(document).on('click', '#searchButton', function (event) {
 
                 //REVEAL
                 var newRevealParagraph = $("<p class='flow-text'>")
-                newRevealParagraph.append("<br>" + hotelDescription)
+                newRevealParagraph.append("<br>" + hotelDescriptionPrice)
+                newRevealParagraph.append("<br>" + hotelDescriptionRating)
+                newRevealParagraph.append("<br>" + hotelAddress)
                 var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
                     newRevealParagraph
                 )
@@ -104,7 +91,7 @@ $(document).on('click', '#searchButton', function (event) {
 
 
                 //SELECTOR
-                var newSelectorInput = $("<input name='group1' class='selector' type='radio' value='unchecked'>")
+                var newSelectorInput = $("<input type='checkbox' value='unchecked'>")
                 var newSelectorSpan = $("<span>")
                 newSelectorSpan.text("Select")
                 var newSelectorLabel = $("<label>").append(
@@ -114,7 +101,12 @@ $(document).on('click', '#searchButton', function (event) {
                 var newSelector = $("<form action='#' class='center'><p>").append(
                     newSelectorLabel
                 )
-
+                var newCard = $("<div class='card'>").append(
+                    newImageDiv,
+                    newContentDiv,
+                    newRevealDiv,
+                    newSelector
+                )
                 //APPEND
                 $("#hotelCardDiv").append(
                     newCard
