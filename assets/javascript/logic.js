@@ -128,14 +128,7 @@ $(document).on('click', '#searchButton', function (event) {
 // fill the name of hotel
 
 // CARD LOGIC
-for (let i = 0; i < 9; i++) {
-
-    var newCard = $("<div class='card'>").append(
-        newImageDiv,
-        newContentDiv,
-        newRevealDiv,
-        newSelector
-    )
+for (let i = 0; i < 10; i++) {
 
     //IMAGE
     var newImage = $("<img class='resize'>")
@@ -176,6 +169,13 @@ for (let i = 0; i < 9; i++) {
     )
     var newSelector = $("<form action='#' class='center'><p>").append(
         newSelectorLabel
+    )
+
+    var newCard = $("<div class='card'>").append(
+        newImageDiv,
+        newContentDiv,
+        newRevealDiv,
+        newSelector
     )
 
     //APPEND
