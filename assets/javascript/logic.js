@@ -27,7 +27,7 @@ $(document).ready(function () {
     $("#loginButton").on("click", function () {
         $("#loginPage").hide()
         $("#homePage").removeClass("hidden")
-        document.body.style.backgroundImage = "url('../images/circles-and-roundabouts.png.pn')";
+        document.body.style.background = 'white';
         $(".parallax").parallax()
     })
     $(".sidenav").sidenav()
@@ -56,7 +56,6 @@ $(document).on('click', '#searchButton', function (event) {
         success: function (response) {
             var results = response.businesses
             for (var i = 0; i < results.length; i++) {
-                console.log(results[i])
                 var hotelName = results[i].name
                 var url = results[i].image_url
 
@@ -117,6 +116,8 @@ $(document).on('click', '#searchButton', function (event) {
     });
 
 })
+<<<<<<< HEAD
+=======
 // fill the name of hotel
 
 // CARD LOGIC
@@ -176,3 +177,4 @@ for (let i = 0; i < 10; i++) {
     )
 }
 
+>>>>>>> 43f44de95aa6247f8a8e8eecb4688313ace9965b
