@@ -38,14 +38,38 @@ $(document).ready(function () {
 
     })
 });
-// This search variable is just to test that the search is working in the queryURL later this will be replaced by form values
+
+
+// this is whats going to grab the airplane quotes; give you the cheapest possible flight for the trip
+// this date needs to be implemented with the calander in order to give you the accurate price
+var date = '2019-11-20'
+$.ajax({
+    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/LAX-sky/' + date +'',
+    method: 'GET',
+
+    headers: {
+        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        "x-rapidapi-key": "46d0add813msh1ed99ae9b7cfa4ap131f2bjsn919c66317030"
+    },
+    query: {
+        "outboundpartialdate": "2019-12-01"
+    },
+
+}).then(function (response) {
+    var quotes = response.Quotes
+for(var i = 0; i < quotes.length; i++){
+    console.log(quotes[i].MinPrice)
+    console.log(response)
+}
+})
+
 
 
 $(document).on('click', '#searchButton', function (event) {
     event.preventDefault()
     var search = $('#destination').val().trim()
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + search + "+hotel"
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + search + ""
     $.ajax({
         url: queryURL,
         headers: {
@@ -55,34 +79,34 @@ $(document).on('click', '#searchButton', function (event) {
         success: function (response) {
             var results = response.businesses
             for (var i = 0; i < results.length; i++) {
-                var hotelState = results[i].location.state
-                var hotelName = results[i].name
+                var foodState = results[i].location.state
+                var foodName = results[i].name
                 var url = results[i].image_url
 
-                var hotelAddress = results[i].location.address1
-                var hotelDescriptionPrice = results[i].price
-                var hotelDescriptionRating = results[i].rating
-                var hotelCity = results[i].location.city
+                var foodAddress = results[i].location.address1
+                var foodDescriptionPrice = results[i].price
+                var foodDescriptionRating = results[i].rating
+                var foodCity = results[i].location.city
 
                 //IMAGE
                 var newImage = $("<img class='resize'>")
                 // image
                 newImage.append(`<img src=${url} + />`)
                 var newImageDiv = $("<div class='class-image'>").append(`<img  class='resize' src=${url} />`)
-                var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
+                var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + foodName + "<i class='material-icons right'>more_vert</i>")
                 var newContentDiv = $("<div class='card-content'>").append(
                     newContent,
                 )
 
                 //REVEAL
                 var newRevealParagraph = $("<p class='flow-text'>")
-                newRevealParagraph.append("<br>" + hotelDescriptionRating)
-                newRevealParagraph.append("<br>" + hotelDescriptionPrice)
-                newRevealParagraph.append("<br>" + hotelAddress + ' ')
-                newRevealParagraph.append(hotelCity + ', ')
-                newRevealParagraph.append("<br>" + hotelState)
+                newRevealParagraph.append("<br>" + foodDescriptionRating)
+                newRevealParagraph.append("<br>" + foodDescriptionPrice)
+                newRevealParagraph.append("<br>" + foodAddress + ' ')
+                newRevealParagraph.append(foodCity + ', ')
+                newRevealParagraph.append("<br>" + foodState)
 
-                var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
+                var newReveal = $("<span class='card-title grey-text text-darken-4'>" + foodName + "<i class='material-icons right'>close</i><br>").append(
                     newRevealParagraph
                 )
                 var newRevealDiv = $("<div class='card-reveal'>").append(
@@ -110,7 +134,7 @@ $(document).on('click', '#searchButton', function (event) {
                     newSelector
                 )
                 //APPEND
-                $("#hotelCardDiv").append(
+                $("#foodCardDiv").append(
                     newCard
                 )
             }
