@@ -58,8 +58,14 @@ h1 {
     font-size: 20px
 }
 
+#foodCardDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card {
     width: 300px;
+    margin: 5px;
 }
 
 .resize {
