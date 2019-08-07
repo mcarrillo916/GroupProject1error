@@ -37,7 +37,7 @@ h1{
     max-height: 300px
 }
 .parallax-container{
-    height: 412px;
+    height: 350px;
 }
 .searchHide{
     display: none;
@@ -45,6 +45,10 @@ h1{
 #searchButton{
     font-family: 'Acme', sans-serif;
     font-size: 20px
+}
+#hotelCardDiv{
+    display: flex;
+    flex-wrap: wrap;
 }
 .card{
     width: 300px;
