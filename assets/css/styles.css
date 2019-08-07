@@ -58,6 +58,15 @@ h1{
     width: 300px;
     height: 300px;
 }
+#resultBox{
+    border: black;
+    border-style: double;
+    background-color: #3196f3;
+    color: white;
+    padding: 0px 0px 5px 0px;
+    width: 40%;
+    margin: auto;
+}
 #tripTableTop{
     font-size: 20px;
     text-decoration: underline #26a69a;
