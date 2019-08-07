@@ -42,9 +42,9 @@ $(document).ready(function () {
 
 // this is whats going to grab the airplane quotes; give you the cheapest possible flight for the trip
 // this date needs to be implemented with the calander in order to give you the accurate price
-var date = '2019-11-20'
+var date = '2019-08-10'
 $.ajax({
-    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/LAX-sky/' + date + '',
+    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/OGG-sky/' + date +'',
     method: 'GET',
 
     headers: {
@@ -52,14 +52,22 @@ $.ajax({
         "x-rapidapi-key": "46d0add813msh1ed99ae9b7cfa4ap131f2bjsn919c66317030"
     },
     query: {
-        "outboundpartialdate": "2019-12-01"
+
     },
 
 }).then(function (response) {
     var quotes = response.Quotes
     for (var i = 0; i < quotes.length; i++) {
-        console.log(quotes[i].MinPrice)
-        console.log(response)
+        // this gives you flight cost
+var price = ( "Cheapest Flight: " +  `$` + quotes[i].MinPrice )
+        // console.log(response)
+
+// this gives airline name
+        console.log(response.Carriers[0].Name)
+
+        $("#priceResult").append(
+            price
+        )
     }
 })
 
@@ -100,9 +108,9 @@ $(document).on('click', '#searchButton', function (event) {
 
                 //REVEAL
                 var newRevealParagraph = $("<p class='flow-text center'>")
-                newRevealParagraph.append("<br>" + foodDescriptionPrice)
+                newRevealParagraph.append("<br>" + "Price Range: " + "<br>" + foodDescriptionPrice)
                 newRevealParagraph.append("<hr>" + foodDescriptionRating + " stars")
-                newRevealParagraph.append("<hr>" + foodAddress)
+                newRevealParagraph.append("<hr>" + "Address: " + "<br>" + foodAddress)
                 var newReveal = $("<span class='card-title grey-text text-darken-4 center'>" + foodName + "<i class='material-icons right'>close</i><br>").append(
                     newRevealParagraph
                 )
@@ -134,16 +142,58 @@ $(document).on('click', '#searchButton', function (event) {
                 $("#foodCardDiv").append(
                     newCard
                 )
-
             }
-<<<<<<< HEAD
-
-=======
             var totalPrice = "$0"
             $("#priceResult").append(
                 totalPrice
             )
->>>>>>> ddc5a364b0491832765e7cf347b42611f690f2e1
         }
     })
 })
+
+
+        }
+    })
+
+
+    //Save  data in Firebase
+    var destination = search;
+    var dateOfDeparture = $("#dateOfDeparture").val().trim();
+    var numberOfNights = $("#numberOfNights").val().trim();
+    var numberOfAdults = $("#numberOfAdults").val().trim();
+    var numberOfChildren = $("#numberOfChildren").val().trim();
+
+    database.ref("/project1").push({
+
+        Destination: destination,
+        DateofDeparture: dateOfDeparture,
+        NumberOfNights: numberOfNights,
+        NumberofAdults: numberOfAdults,
+        NumberofChildren: numberOfChildren,
+    });
+
+})
+
+// Data Stored In Firebasse 
+database.ref("/project1").on("child_added", function (snapshot) {
+
+    //Add data to the table
+    var tr = $("<tr>");
+    var a = $("<a>");
+
+
+
+    tr.append(
+        $("<td class='center'>").text(snapshot.val().Destination),
+        $("<td class='center'>").text(snapshot.val().DateofDeparture)
+
+
+    );
+
+    $("#tripTableData").append(tr);
+
+    // Handle the errors
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
+
