@@ -75,11 +75,11 @@ $(document).on('click', '#searchButton', function (event) {
                 )
 
                 //REVEAL
-                var newRevealParagraph = $("<p class='flow-text'>")
+                var newRevealParagraph = $("<p class='flow-text center'>")
                 newRevealParagraph.append("<br>" + hotelDescriptionPrice)
-                newRevealParagraph.append("<br>" + hotelDescriptionRating)
-                newRevealParagraph.append("<br>" + hotelAddress)
-                var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
+                newRevealParagraph.append("<hr>" + hotelDescriptionRating + " stars")
+                newRevealParagraph.append("<hr>" + hotelAddress)
+                var newReveal = $("<span class='card-title grey-text text-darken-4 center'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
                     newRevealParagraph
                 )
                 var newRevealDiv = $("<div class='card-reveal'>").append(
@@ -116,8 +116,6 @@ $(document).on('click', '#searchButton', function (event) {
     });
 
 })
-<<<<<<< HEAD
-=======
 // fill the name of hotel
 
 // CARD LOGIC
@@ -177,4 +175,3 @@ for (let i = 0; i < 10; i++) {
     )
 }
 
->>>>>>> 43f44de95aa6247f8a8e8eecb4688313ace9965b
