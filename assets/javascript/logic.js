@@ -44,7 +44,7 @@ $(document).ready(function () {
 // this date needs to be implemented with the calander in order to give you the accurate price
 var date = '2019-11-20'
 $.ajax({
-    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/LAX-sky/' + date +'',
+    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/LAX-sky/' + date + '',
     method: 'GET',
 
     headers: {
@@ -57,10 +57,10 @@ $.ajax({
 
 }).then(function (response) {
     var quotes = response.Quotes
-for(var i = 0; i < quotes.length; i++){
-    console.log(quotes[i].MinPrice)
-    console.log(response)
-}
+    for (var i = 0; i < quotes.length; i++) {
+        console.log(quotes[i].MinPrice)
+        console.log(response)
+    }
 })
 
 
@@ -134,7 +134,12 @@ $(document).on('click', '#searchButton', function (event) {
                 $("#foodCardDiv").append(
                     newCard
                 )
+
             }
+            var totalPrice = "$0"
+            $("#priceResult").append(
+                totalPrice
+            )
 
         }
     })
