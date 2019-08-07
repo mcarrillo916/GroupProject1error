@@ -99,14 +99,11 @@ $(document).on('click', '#searchButton', function (event) {
                 )
 
                 //REVEAL
-                var newRevealParagraph = $("<p class='flow-text'>")
-                newRevealParagraph.append("<br>" + foodDescriptionRating)
+                var newRevealParagraph = $("<p class='flow-text center'>")
                 newRevealParagraph.append("<br>" + foodDescriptionPrice)
-                newRevealParagraph.append("<br>" + foodAddress + ' ')
-                newRevealParagraph.append(foodCity + ', ')
-                newRevealParagraph.append("<br>" + foodState)
-
-                var newReveal = $("<span class='card-title grey-text text-darken-4'>" + foodName + "<i class='material-icons right'>close</i><br>").append(
+                newRevealParagraph.append("<hr>" + foodDescriptionRating + " stars")
+                newRevealParagraph.append("<hr>" + foodAddress)
+                var newReveal = $("<span class='card-title grey-text text-darken-4 center'>" + foodName + "<i class='material-icons right'>close</i><br>").append(
                     newRevealParagraph
                 )
                 var newRevealDiv = $("<div class='card-reveal'>").append(

@@ -46,8 +46,13 @@ h1{
     font-family: 'Acme', sans-serif;
     font-size: 20px
 }
+#foodCardDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
 .card{
     width: 300px;
+    margin: 5px;
 }
 .resize{
     width: 300px;
