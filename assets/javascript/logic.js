@@ -42,9 +42,9 @@ $(document).ready(function () {
 
 // this is whats going to grab the airplane quotes; give you the cheapest possible flight for the trip
 // this date needs to be implemented with the calander in order to give you the accurate price
-var date = '2019-11-20'
+var date = '2019-08-10'
 $.ajax({
-    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/LAX-sky/' + date +'',
+    url: 'https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/OGG-sky/' + date +'',
     method: 'GET',
 
     headers: {
@@ -52,7 +52,7 @@ $.ajax({
         "x-rapidapi-key": "46d0add813msh1ed99ae9b7cfa4ap131f2bjsn919c66317030"
     },
     query: {
-        "outboundpartialdate": "2019-12-01"
+
     },
 
 }).then(function (response) {
