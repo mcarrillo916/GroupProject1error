@@ -134,8 +134,16 @@ $(document).on('click', '#searchButton', function (event) {
                 $("#foodCardDiv").append(
                     newCard
                 )
-            }
 
+            }
+<<<<<<< HEAD
+
+=======
+            var totalPrice = "$0"
+            $("#priceResult").append(
+                totalPrice
+            )
+>>>>>>> ddc5a364b0491832765e7cf347b42611f690f2e1
         }
     })
 })
