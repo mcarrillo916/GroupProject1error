@@ -3,9 +3,10 @@ $(document).ready(function () {
     // Initial Values 
     var destination = "";
     var dateOfDeparture = "";
-    var dateOFReturn = "";
+    var numberOfNights = 0;
     var numberOfAdults = 0;
     var numberOfChildren = 0;
+
 
     var firebaseConfig = {
         apiKey: "AIzaSyAUvX0Qw0JJOZJkcqSyMJbJ2Maxz2HPDRc",
@@ -30,6 +31,7 @@ $(document).ready(function () {
         document.body.style.background = 'white';
         $(".parallax").parallax()
     })
+
     $(".sidenav").sidenav()
     $("#searchButton").on("click", function () {
         $(".searchHide").removeClass("searchHide")
@@ -37,141 +39,179 @@ $(document).ready(function () {
     $(".datepicker").datepicker({
 
     })
-});
-// This search variable is just to test that the search is working in the queryURL later this will be replaced by form values
 
-$(document).on('click', '#searchButton', function (event) {
-    event.preventDefault()
-    var search = $('#destination').val().trim()
+    // This search variable is just to test that the search is working in the queryURL later this will be replaced by form values
 
+    $(document).on('click', '#searchButton', function (event) {
+        event.preventDefault()
+        var search = $('#destination').val().trim()
 
+        var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + search + "$categories=hotel"
+        $.ajax({
+            url: queryURL,
+            headers: {
+                'Authorization': 'Bearer 2y2kh_n1BP5rfEiJPqnQ2sui5rl8MYkZRNZUS5HrYTPLgPCmZeWpCsbWee2cOzJFoZWmf6J2Cg58nT2MQR8P69FD6BYFRtu08BhRXrcFT0U8jkDowHPmnUNPC686XXYx',
+            },
+            method: 'GET',
+            success: function (response) {
+                var results = response.businesses
+                for (var i = 0; i < results.length; i++) {
+                    var hotelName = results[i].name
+                    var url = results[i].image_url
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + search + "$categories=hotel"
-    $.ajax({
-        url: queryURL,
-        headers: {
-            'Authorization': 'Bearer 2y2kh_n1BP5rfEiJPqnQ2sui5rl8MYkZRNZUS5HrYTPLgPCmZeWpCsbWee2cOzJFoZWmf6J2Cg58nT2MQR8P69FD6BYFRtu08BhRXrcFT0U8jkDowHPmnUNPC686XXYx',
-        },
-        method: 'GET',
-        success: function (response) {
-            var results = response.businesses
-            for (var i = 0; i < results.length; i++) {
-                var hotelName = results[i].name
-                var url = results[i].image_url
+                    var hotelAddress = results[i].location.address1
+                    var hotelDescriptionPrice = results[i].price
+                    var hotelDescriptionRating = results[i].rating
 
-                var hotelAddress = results[i].location.address1
-                var hotelDescriptionPrice = results[i].price
-                var hotelDescriptionRating = results[i].rating
+                    //IMAGE
+                    var newImage = $("<img class='resize'>")
+                    // image
+                    newImage.append(`<img src=${url} + />`)
+                    var newImageDiv = $("<div class='class-image'>").append(`<img  class='resize' src=${url} />`)
+                    var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
 
-                //IMAGE
-                var newImage = $("<img class='resize'>")
-                // image
-                newImage.append(`<img src=${url} + />`)
-                var newImageDiv = $("<div class='class-image'>").append(`<img  class='resize' src=${url} />`)
-                var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
+                    var newContentDiv = $("<div class='card-content'>").append(
+                        newContent,
+                    )
 
-                var newContentDiv = $("<div class='card-content'>").append(
-                    newContent,
-                )
-
-                //REVEAL
-                var newRevealParagraph = $("<p class='flow-text center'>")
-                newRevealParagraph.append("<br>" + hotelDescriptionPrice)
-                newRevealParagraph.append("<hr>" + hotelDescriptionRating + " stars")
-                newRevealParagraph.append("<hr>" + hotelAddress)
-                var newReveal = $("<span class='card-title grey-text text-darken-4 center'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
-                    newRevealParagraph
-                )
-                var newRevealDiv = $("<div class='card-reveal'>").append(
-                    newReveal,
-                )
+                    //REVEAL
+                    var newRevealParagraph = $("<p class='flow-text'>")
+                    newRevealParagraph.append("<br>" + hotelDescriptionPrice)
+                    newRevealParagraph.append("<br>" + hotelDescriptionRating)
+                    newRevealParagraph.append("<br>" + hotelAddress)
+                    var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
+                        newRevealParagraph
+                    )
+                    var newRevealDiv = $("<div class='card-reveal'>").append(
+                        newReveal,
+                    )
 
 
 
 
-                //SELECTOR
-                var newSelectorInput = $("<input type='checkbox' value='unchecked'>")
-                var newSelectorSpan = $("<span>")
-                newSelectorSpan.text("Select")
-                var newSelectorLabel = $("<label>").append(
-                    newSelectorInput,
-                    newSelectorSpan
-                )
-                var newSelector = $("<form action='#' class='center'><p>").append(
-                    newSelectorLabel
-                )
-                var newCard = $("<div class='card'>").append(
-                    newImageDiv,
-                    newContentDiv,
-                    newRevealDiv,
-                    newSelector
-                )
-                //APPEND
-                $("#hotelCardDiv").append(
-                    newCard
-                )
+                    //SELECTOR
+                    var newSelectorInput = $("<input type='checkbox' value='unchecked'>")
+                    var newSelectorSpan = $("<span>")
+                    newSelectorSpan.text("Select")
+                    var newSelectorLabel = $("<label>").append(
+                        newSelectorInput,
+                        newSelectorSpan
+                    )
+                    var newSelector = $("<form action='#' class='center'><p>").append(
+                        newSelectorLabel
+                    )
+                    var newCard = $("<div class='card'>").append(
+                        newImageDiv,
+                        newContentDiv,
+                        newRevealDiv,
+                        newSelector
+                    )
+                    //APPEND
+                    $("#hotelCardDiv").append(
+                        newCard
+                    )
+                }
+
             }
+        });
 
-        }
+        //Save  data in Firebase
+        var destination = search;
+        var dateOfDeparture = $("#dateOfDeparture").val().trim();
+        var numberOfNights = $("#numberOfNights").val().trim();
+        var numberOfAdults = $("#numberOfAdults").val().trim();
+        var numberOfChildren = $("#numberOfChildren").val().trim();
+
+        database.ref("/project1").push({
+
+            Destination: destination,
+            DateofDeparture: dateOfDeparture,
+            NumberOfNights: numberOfNights,
+            NumberofAdults: numberOfAdults,
+            NumberofChildren: numberOfChildren,
+        });
+
+    })
+
+    // Data Stored In Firebasse 
+    database.ref("/project1").on("child_added", function (snapshot) {
+
+        //Add data to the table
+        var tr = $("<tr>");
+        var a = $("<a>");
+
+
+
+        tr.append(
+            $("<td class='center'>").text(snapshot.val().Destination),
+            $("<td class='center'>").text(snapshot.val().DateofDeparture)
+
+
+        );
+
+        $("#tripTableData").append(tr);
+
+        // Handle the errors
+    }, function (errorObject) {
+        console.log("Errors handled: " + errorObject.code);
     });
 
-})
-// fill the name of hotel
+    // fill the name of hotel
 
-// CARD LOGIC
-for (let i = 0; i < 10; i++) {
+    // CARD LOGIC
+    for (let i = 0; i < 10; i++) {
 
-    //IMAGE
-    var newImage = $("<img class='resize'>")
-    // image
-    newImage.attr("src", "assets/images/circles-and-roundabouts.png.png")
-    var newImageDiv = $("<div class='class-image'>").append(
-        newImage
-    )
+        //IMAGE
+        var newImage = $("<img class='resize'>")
+        // image
+        newImage.attr("src", "assets/images/circles-and-roundabouts.png.png")
+        var newImageDiv = $("<div class='class-image'>").append(
+            newImage
+        )
 
 
-    //CONTENT
-    var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
+        //CONTENT
+        var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
 
-    var newContentDiv = $("<div class='card-content'>").append(
-        newContent,
-    )
+        var newContentDiv = $("<div class='card-content'>").append(
+            newContent,
+        )
 
-    //REVEAL
-    var newRevealParagraph = $("<p class='flow-text'>")
-    newRevealParagraph.append("<br>" + hotelDescription)
-    var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
-        newRevealParagraph
-    )
-    var newRevealDiv = $("<div class='card-reveal'>").append(
-        newReveal,
-    )
-
+        //REVEAL
+        var newRevealParagraph = $("<p class='flow-text'>")
+        newRevealParagraph.append("<br>" + hotelDescription)
+        var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
+            newRevealParagraph
+        )
+        var newRevealDiv = $("<div class='card-reveal'>").append(
+            newReveal,
+        )
 
 
 
-    //SELECTOR
-    var newSelectorInput = $("<input name='group1' class='selector' type='radio' value='unchecked'>")
-    var newSelectorSpan = $("<span>")
-    newSelectorSpan.text("Select")
-    var newSelectorLabel = $("<label>").append(
-        newSelectorInput,
-        newSelectorSpan
-    )
-    var newSelector = $("<form action='#' class='center'><p>").append(
-        newSelectorLabel
-    )
 
-    var newCard = $("<div class='card'>").append(
-        newImageDiv,
-        newContentDiv,
-        newRevealDiv,
-        newSelector
-    )
+        //SELECTOR
+        var newSelectorInput = $("<input name='group1' class='selector' type='radio' value='unchecked'>")
+        var newSelectorSpan = $("<span>")
+        newSelectorSpan.text("Select")
+        var newSelectorLabel = $("<label>").append(
+            newSelectorInput,
+            newSelectorSpan
+        )
+        var newSelector = $("<form action='#' class='center'><p>").append(
+            newSelectorLabel
+        )
 
-    //APPEND
-    $("#hotelCardDiv").append(
-        newCard
-    )
-}
+        var newCard = $("<div class='card'>").append(
+            newImageDiv,
+            newContentDiv,
+            newRevealDiv,
+            newSelector
+        )
 
+        //APPEND
+        $("#hotelCardDiv").append(
+            newCard
+        )
+    }
+});
