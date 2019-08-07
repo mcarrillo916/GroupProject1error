@@ -3,9 +3,10 @@ $(document).ready(function () {
     // Initial Values 
     var destination = "";
     var dateOfDeparture = "";
-    var dateOFReturn = "";
+    var numberOfNights = 0;
     var numberOfAdults = 0;
     var numberOfChildren = 0;
+
 
     var firebaseConfig = {
         apiKey: "AIzaSyAUvX0Qw0JJOZJkcqSyMJbJ2Maxz2HPDRc",
@@ -30,6 +31,7 @@ $(document).ready(function () {
         document.body.style.background = 'white';
         $(".parallax").parallax()
     })
+
     $(".sidenav").sidenav()
     $("#searchButton").on("click", function () {
         $(".searchHide").removeClass("searchHide")
@@ -57,10 +59,14 @@ $.ajax({
 
 }).then(function (response) {
     var quotes = response.Quotes
-for(var i = 0; i < quotes.length; i++){
-    console.log(quotes[i].MinPrice)
-    console.log(response)
-}
+    for (var i = 0; i < quotes.length; i++) {
+        // this gives you flight cost
+        console.log( "Cheapest Flight: " +  `$` + quotes[i].MinPrice )
+        // console.log(response)
+
+// this gives airline name
+        console.log(response.Carriers[0].Name)
+    }
 })
 
 
@@ -134,8 +140,112 @@ $(document).on('click', '#searchButton', function (event) {
                 $("#foodCardDiv").append(
                     newCard
                 )
-            }
 
+            }
+            var totalPrice = "$0"
+            $("#priceResult").append(
+                totalPrice
+            )
         }
     })
+
+
+    //Save  data in Firebase
+    var destination = search;
+    var dateOfDeparture = $("#dateOfDeparture").val().trim();
+    var numberOfNights = $("#numberOfNights").val().trim();
+    var numberOfAdults = $("#numberOfAdults").val().trim();
+    var numberOfChildren = $("#numberOfChildren").val().trim();
+
+    database.ref("/project1").push({
+
+        Destination: destination,
+        DateofDeparture: dateOfDeparture,
+        NumberOfNights: numberOfNights,
+        NumberofAdults: numberOfAdults,
+        NumberofChildren: numberOfChildren,
+    });
+
 })
+
+// Data Stored In Firebasse 
+database.ref("/project1").on("child_added", function (snapshot) {
+
+    //Add data to the table
+    var tr = $("<tr>");
+    var a = $("<a>");
+
+
+
+    tr.append(
+        $("<td class='center'>").text(snapshot.val().Destination),
+        $("<td class='center'>").text(snapshot.val().DateofDeparture)
+
+
+    );
+
+    $("#tripTableData").append(tr);
+
+    // Handle the errors
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
+
+// fill the name of hotel
+
+// CARD LOGIC
+for (let i = 0; i < 10; i++) {
+
+    //IMAGE
+    var newImage = $("<img class='resize'>")
+    // image
+    newImage.attr("src", "assets/images/circles-and-roundabouts.png.png")
+    var newImageDiv = $("<div class='class-image'>").append(
+        newImage
+    )
+
+
+    //CONTENT
+    var newContent = $("<span class='card-title activator grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>more_vert</i>")
+
+    var newContentDiv = $("<div class='card-content'>").append(
+        newContent,
+    )
+
+    //REVEAL
+    var newRevealParagraph = $("<p class='flow-text'>")
+    newRevealParagraph.append("<br>" + hotelDescription)
+    var newReveal = $("<span class='card-title grey-text text-darken-4'>" + hotelName + "<i class='material-icons right'>close</i><br>").append(
+        newRevealParagraph
+    )
+    var newRevealDiv = $("<div class='card-reveal'>").append(
+        newReveal,
+    )
+
+
+
+
+    //SELECTOR
+    var newSelectorInput = $("<input name='group1' class='selector' type='radio' value='unchecked'>")
+    var newSelectorSpan = $("<span>")
+    newSelectorSpan.text("Select")
+    var newSelectorLabel = $("<label>").append(
+        newSelectorInput,
+        newSelectorSpan
+    )
+    var newSelector = $("<form action='#' class='center'><p>").append(
+        newSelectorLabel
+    )
+
+    var newCard = $("<div class='card'>").append(
+        newImageDiv,
+        newContentDiv,
+        newRevealDiv,
+        newSelector
+    )
+
+    //APPEND
+    $("#hotelCardDiv").append(
+        newCard
+    )
+}
