@@ -136,7 +136,12 @@ $(document).on('click', '#searchButton', function (event) {
                 $("#foodCardDiv").append(
                     newCard
                 )
+
             }
+            var totalPrice = "$0"
+            $("#priceResult").append(
+                totalPrice
+            )
         }
     })
 
