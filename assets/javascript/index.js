@@ -14,7 +14,7 @@ const setupUI = (user) => {
         $('.logged-in').show();
         $('.logged-out').hide();
 
-        console.log("Frank login in " + user)
+        // console.log("Frank login in " + user)
     } else {
         //toggle UI Elements
         $('.logged-in').hide();
