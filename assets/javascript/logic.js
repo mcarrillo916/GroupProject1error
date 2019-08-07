@@ -61,11 +61,15 @@ $.ajax({
     var quotes = response.Quotes
     for (var i = 0; i < quotes.length; i++) {
         // this gives you flight cost
-        console.log( "Cheapest Flight: " +  `$` + quotes[i].MinPrice )
+var price = ( "Cheapest Flight: " +  `$` + quotes[i].MinPrice )
         // console.log(response)
 
 // this gives airline name
         console.log(response.Carriers[0].Name)
+
+        $("#priceResult").append(
+            price
+        )
     }
 })
 
@@ -145,10 +149,6 @@ $(document).on('click', '#searchButton', function (event) {
         }
     })
 
-    var totalPrice = "$0"
-    $("#priceResult").append(
-        totalPrice
-    )
 
     //Save  data in Firebase
     var destination = search;
