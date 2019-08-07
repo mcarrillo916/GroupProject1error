@@ -1,63 +1,81 @@
-.hidden{
+.hidden {
     display: none
 }
-body{
-  background-image: url(../images/login.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+
+body {
+    background-image: url(../images/login.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
-#loginPage{
+
+#loginPage {
     margin: 30% auto;
     max-height: 100%
 }
-#wantToGetAway{
+
+#wantToGetAway {
     font-family: 'Dancing Script', cursive;
     color: #E4F5FD;
 }
-#loginButton{
+
+#loginButton {
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
 }
-.brand-logo{
+
+.brand-logo {
     font-family: 'Bangers', cursive;
     letter-spacing: 2px;
     font-size: 40px;
     color: #d3def4;
 }
-#navbar-links{
+
+#navbar-links {
     font-family: 'Lobster', cursive;
 }
-h1{
+
+h1 {
     font-family: 'Acme', sans-serif;
 }
-.parallax{
+
+.parallax {
     height: auto;
     max-height: 300px
 }
-.parallax-container{
-    height: 350px;
+
+.parallax-container {
+    height: 412px;
 }
-.searchHide{
+
+.searchHide {
     display: none;
 }
-#searchButton{
+
+#searchButton {
     font-family: 'Acme', sans-serif;
     font-size: 20px
 }
-#foodCardDiv{
+
+#foodCardDiv {
     display: flex;
     flex-wrap: wrap;
 }
-.card{
+
+.card {
     width: 300px;
     margin: 5px;
 }
-.resize{
+
+.resize {
     width: 300px;
     height: 300px;
 }
+
+
+#tripTableTop {
+
 #resultBox{
     border: black;
     border-style: double;
@@ -68,25 +86,31 @@ h1{
     margin: auto;
 }
 #tripTableTop{
+
     font-size: 20px;
     text-decoration: underline #26a69a;
 }
-#mytripsTable{
+
+#mytripsTable {
     font-family: 'Acme', sans-serif;
     font-size: 25px
 }
-.inputs{
+
+.inputs {
     margin-bottom: 30px
 }
-#userProfile{
+
+#userProfile {
     font-family: 'Acme', sans-serif;
     font-size: 25px
 }
-#aboutusText{
+
+#aboutusText {
     font-family: 'Acme', sans-serif;
     font-size: 25px
 }
-#footer{
+
+#footer {
     height: 25px;
     font-size: 15px;
     color: white;
@@ -94,18 +118,21 @@ h1{
     border-top: #49b1c2 2px ridge;
     font-family: 'Amatic SC', cursive;
 }
+
 @media only screen and (max-width: 1050px) {
-    .parallax-container{
+    .parallax-container {
         height: 300px
     }
-  }
+}
+
 @media only screen and (max-width: 800px) {
-    .parallax-container{
+    .parallax-container {
         height: 250px
     }
-  }
+}
+
 @media only screen and (max-width: 500px) {
-    .parallax-container{
+    .parallax-container {
         height: 150px
     }
-  }
+}
